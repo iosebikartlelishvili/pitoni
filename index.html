@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="ka">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>ამოხსნები</title>
+    <style>
+        body {
+            font-family: Consolas, "Courier New", monospace;
+            background: #f0f0f0;
+            padding: 20px;
+        }
+
+        pre {
+            background: #272822;
+            color: #f8f8f2;
+            padding: 20px;
+            border-radius: 8px;
+            white-space: pre-wrap;
+            /* ინახავს ფორმატირებას */
+            font-size: 14px;
+            line-height: 1.4;
+            overflow-x: auto;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>ამოხსნები</h1>
+    <pre>
+ამოხსნები
+
+ამოცანა 1 - ამოხსნა
+    # ტემპერატურების შეყვანა
+    temperatures = []
+    for i in range(1, 6):
+        temp = float(input(f"შეიყვანეთ {i}-ელი დღის ტემპერატურა: "))
+        temperatures.append(temp)
+
+    # გამოთვლები
+    average = sum(temperatures) / len(temperatures)
+    max_temp = max(temperatures)
+    min_temp = min(temperatures)
+
+    # თბილი დღეების დათვლა
+    warm_days = 0
+    for temp in temperatures:
+        if temp > 20:
+            warm_days += 1
+
+    # ან უფრო მოკლედ:
+    # warm_days = sum(1 for temp in temperatures if temp > 20)
+
+    # შედეგების გამოტანა
+    print(f"\nსაშუალო ტემპერატურა: {average:.1f}°C")
+    print(f"ყველაზე ცხელი: {max_temp}°C")
+    print(f"ყველაზე ცივი: {min_temp}°C")
+    print(f"თბილი დღეები (>20°C): {warm_days}")
+
+ამოცანა 2 - ამოხსნა
+    students = {
+        "გიორგი": 85,
+        "მარიამ": 92,
+        "ნინო": 78,
+        "დავით": 65,
+        "ანა": 88,
+        "ლუკა": 73
+    }
+
+    # საშუალო ქულა
+    average_grade = sum(students.values()) / len(students)
+    print(f"საშუალო ქულა: {average_grade:.2f}")
+
+    # საუკეთესო სტუდენტები (>80)
+    print("\nსაუკეთესო სტუდენტები (>80):")
+    for name, grade in students.items():
+        if grade > 80:
+            print(f"{name}: {grade}")
+
+    # დალაგებული სია
+    print("\nდალაგებული სია (ზრდადობით):")
+    sorted_students = sorted(students.items(), key=lambda x: x[1])
+    for name, grade in sorted_students:
+        print(f"{name}: {grade}")
+
+ამოცანა 3 - ამოხსნა
+    def number_statistics(numbers):
+        """
+        რიცხვების სიის სტატისტიკური ანალიზი
+        """
+        # ძირითადი სტატისტიკა
+        stats = {
+            'count': len(numbers),
+            'sum': sum(numbers),
+            'average': sum(numbers) / len(numbers),
+            'min': min(numbers),
+            'max': max(numbers)
+        }
+
+        # ლუწი და კენტი რიცხვების დათვლა
+        even_count = 0
+        odd_count = 0
+
+        for num in numbers:
+            if num % 2 == 0:
+                even_count += 1
+            else:
+                odd_count += 1
+
+        stats['even_count'] = even_count
+        stats['odd_count'] = odd_count
+
+        return stats
+
+    # ტესტი
+    numbers = [12, 5, 8, 15, 22, 9, 17, 4, 20, 11]
+    result = number_statistics(numbers)
+
+    print("სტატისტიკა:")
+    for key, value in result.items():
+        print(f"{key}: {value}")
+
+    # ან უფრო ლამაზად:
+    print("\n" + "="*40)
+    print(f"ელემენტების რაოდენობა: {result['count']}")
+    print(f"ჯამი: {result['sum']}")
+    print(f"საშუალო: {result['average']:.1f}")
+    print(f"მინიმუმი: {result['min']}")
+    print(f"მაქსიმუმი: {result['max']}")
+    print(f"ლუწი რიცხვები: {result['even_count']}")
+    print(f"კენტი რიცხვები: {result['odd_count']}")
+
+ამოცანა 4 - ამოხსნა
+    # შეყვანა
+    sentence = input("შეიყვანეთ წინადადება: ")
+
+    # სიტყვებად დაყოფა
+    words = sentence.split()
+
+    # გამოთვლები
+    word_count = len(words)
+    char_count = len(sentence.replace(" ", ""))
+    longest_word = max(words, key=len)
+    shortest_word = min(words, key=len)
+
+    # შედეგების გამოტანა
+    print(f"\nსიტყვების რაოდენობა: {word_count}")
+    print(f"სიმბოლოების რაოდენობა: {char_count}")
+    print(f"ყველაზე გრძელი სიტყვა: {longest_word} ({len(longest_word)})")
+    print(f"ყველაზე მოკლე სიტყვა: {shortest_word} ({len(shortest_word)})")
+
+    print("\nთითოეული სიტყვის სიგრძე:")
+    for word in words:
+        print(f"{word}: {len(word)}")
+</pre>
+</body>
+
+</html>
